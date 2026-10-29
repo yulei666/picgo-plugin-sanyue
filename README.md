@@ -258,6 +258,16 @@ blog/images
 - 🔀 支持多种上传渠道（Telegram、CF-R2、S3）
 - 🔐 基于Token的身份验证
 
+## 发布流程
+
+本仓库通过 GitHub Actions（`.github/workflows/publish.yml`）自动发布到 npm，使用 npm Trusted Publishing，无需配置 npm token：
+
+1. 修改 `package.json` 中的 `version` 并更新本 README 的更新日志，提交并推送
+2. 在 GitHub 上以 `v<版本号>` 为 tag 创建 Release（如 `v1.0.1`）
+3. Release 发布后 workflow 自动校验 tag 与 `package.json` 版本一致，然后执行 `npm publish`
+
+也可以在 Actions 页面手动运行该 workflow，发布所选分支上的当前版本。
+
 ## 贡献
 
 欢迎提交 Issue 和 Pull Request 来帮助改进这个插件！
