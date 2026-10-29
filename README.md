@@ -1,12 +1,16 @@
-# PicGo Plugin - SanYue ImgBed
+# PicGo Plugin - Sanyue CloudFlare ImgBed
 
-一个用于 PicGo 的 SanYue 图床上传插件，支持多种上传渠道。
+一个用于 PicGo / PicList 的 [Sanyue CloudFlare ImgBed](https://github.com/MarSeventh/CloudFlare-ImgBed) 图床上传插件，支持多种上传渠道。
+
+> 本插件基于 [gunanbei/picgo-plugin-sanyue](https://github.com/gunanbei/picgo-plugin-sanyue)（npm: `picgo-plugin-uploader-sanyue-imgbed`）修改，增加了上传文件夹占位符、输入校验等功能，以独立的包名发布。
+>
+> 与原插件使用不同的图床 ID（`sanyue-cloudflare-imgbed`），两者可以同时安装互不影响；从原插件迁移过来时需要重新填写一次配置。
 
 ## 功能特性
 
 - 🚀 支持多种上传渠道（Telegram、CF-R2、S3）
 - 🔐 基于 Token 的身份验证
-- 📁 支持自定义上传文件夹
+- 📁 支持自定义上传文件夹，支持 `{Y}/{m}/{d}` 等时间占位符
 - 📱 简单易用的配置界面
 - 🎯 自动处理图片上传和URL生成
 - 🔄 支持完整URL返回格式
@@ -16,22 +20,22 @@
 ### 方法一：通过 PicGo 命令行安装（推荐）
 
 ```bash
-picgo install uploader-sanyue-imgbed
+picgo install sanyue-cloudflare-imgbed
 ```
 
-### 方法二：通过 PicGo 插件市场安装
+### 方法二：通过 PicGo / PicList 插件市场安装
 
-1. 打开 PicGo 应用
+1. 打开 PicGo / PicList 应用
 2. 进入 `插件设置`
-3. 搜索 `sanyue` 或 `uploader-sanyue-imgbed`
-4. 找到 `uploader-sanyue-imgbed` 插件并点击安装
+3. 搜索 `sanyue-cloudflare-imgbed`
+4. 找到 `sanyue-cloudflare-imgbed` 插件并点击安装
 
-> **注意**：搜索时请使用 `sanyue` 或 `uploader-sanyue-imgbed` 作为关键词，不要包含 `picgo-plugin-` 前缀。
+> **注意**：搜索时不要包含 `picgo-plugin-` 前缀。
 
 ### 方法三：使用 npm 全局安装
 
 ```bash
-npm install -g picgo-plugin-uploader-sanyue-imgbed
+npm install -g picgo-plugin-sanyue-cloudflare-imgbed
 ```
 
 ### 方法四：安装到 PicGo GUI 目录
@@ -41,7 +45,8 @@ cd ~/Library/Application\ Support/picgo  # macOS
 # cd ~/.config/picgo  # Linux
 # cd %APPDATA%\picgo  # Windows
 
-npm install picgo-plugin-uploader-sanyue-imgbed --save
+# cd ~/Library/Application\ Support/piclist  # PicList (macOS)
+npm install picgo-plugin-sanyue-cloudflare-imgbed --save
 ```
 
 ## 配置说明
@@ -56,7 +61,7 @@ npm install picgo-plugin-uploader-sanyue-imgbed --save
 
 ### 2. 插件配置
 
-在 PicGo 的插件设置中找到 `ImgBed Sanyue` 插件，点击配置：
+在 PicGo 的图床设置中找到 `Sanyue CloudFlare ImgBed`，点击配置：
 
 #### 必需配置项
 
@@ -122,7 +127,7 @@ npm install picgo-plugin-uploader-sanyue-imgbed --save
 
 ### 1. 基本使用
 
-1. 完成上述配置后，在 PicGo 主界面选择 `ImgBed Sanyue` 作为默认图床
+1. 完成上述配置后，在 PicGo 主界面选择 `Sanyue CloudFlare ImgBed` 作为默认图床
 2. 拖拽图片到 PicGo 或使用快捷键上传
 3. 上传成功后会自动复制图片链接到剪贴板
 
@@ -188,9 +193,9 @@ blog/images
 - **权限问题**: 确认 Token 有对应文件夹的写入权限
 
 #### 5. 插件市场搜索不到
-- **搜索关键词**: 使用 `sanyue` 或 `uploader-sanyue-imgbed`，不要包含 `picgo-plugin-` 前缀
+- **搜索关键词**: 使用 `sanyue-cloudflare-imgbed`，不要包含 `picgo-plugin-` 前缀
 - **npm 索引延迟**: 新发布的版本可能需要 10-60 分钟才能在搜索中显示
-- **命令行安装**: 如果搜索不到，可以直接使用命令 `picgo install uploader-sanyue-imgbed` 安装
+- **命令行安装**: 如果搜索不到，可以直接使用命令 `picgo install sanyue-cloudflare-imgbed` 安装
 - **清除缓存**: 尝试重启 PicGo 应用或清除应用缓存
 
 ### 错误代码说明
@@ -203,14 +208,26 @@ blog/images
 
 ## 开发信息
 
-- **包名**: `picgo-plugin-uploader-sanyue-imgbed`
-- **版本**: 1.1.9
-- **作者**: huajianling
+- **包名**: `picgo-plugin-sanyue-cloudflare-imgbed`
+- **图床 ID**: `sanyue-cloudflare-imgbed`
+- **版本**: 1.0.0
 - **许可证**: MIT
-- **GitHub**: [https://github.com/gunanbei/picgo-plugin-sanyue](https://github.com/gunanbei/picgo-plugin-sanyue)
-- **NPM**: [https://www.npmjs.com/package/picgo-plugin-uploader-sanyue-imgbed](https://www.npmjs.com/package/picgo-plugin-uploader-sanyue-imgbed)
+- **GitHub**: [https://github.com/yulei666/picgo-plugin-sanyue](https://github.com/yulei666/picgo-plugin-sanyue)
+- **NPM**: [https://www.npmjs.com/package/picgo-plugin-sanyue-cloudflare-imgbed](https://www.npmjs.com/package/picgo-plugin-sanyue-cloudflare-imgbed)
+- **原项目**: [gunanbei/picgo-plugin-sanyue](https://github.com/gunanbei/picgo-plugin-sanyue)
 
 ## 更新日志
+
+### picgo-plugin-sanyue-cloudflare-imgbed v1.0.0
+- 🎉 以新包名 `picgo-plugin-sanyue-cloudflare-imgbed` 独立发布，图床 ID 改为 `sanyue-cloudflare-imgbed`
+- ✨ 上传文件夹支持 `{Y}` `{y}` `{m}` `{d}` `{h}` `{i}` `{s}` `{ms}` `{timestamp}` 占位符
+- ✅ 校验花括号匹配和占位符合法性，非法配置在上传前报错
+- 💡 设置页提供上传文件夹和占位符说明
+- 🐛 上传文件夹做 URL 编码并规范化路径，修复含 `&`、`#`、中文等字符时上传异常
+- 🐛 修复 API 地址末尾带 `/` 时拼出 `//upload` 的问题
+- 🐛 上传失败时显示真实错误信息，不再被当作上传成功
+
+### 以下为原插件 picgo-plugin-uploader-sanyue-imgbed 的更新日志
 
 ### v1.1.9 (2025-10-16)
 - 🐛 **重要修复**：移除错误的依赖配置，修复插件安装失败的问题

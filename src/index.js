@@ -55,16 +55,18 @@ const resolveFolder = (folder, date) => {
         .replace(/^\/|\/$/g, "");
 };
 
+const UPLOADER_ID = "sanyue-cloudflare-imgbed";
+
 module.exports = (ctx) => {
     const register = () => {
-        ctx.helper.uploader.register("uploader-sanyue-imgbed", {
+        ctx.helper.uploader.register(UPLOADER_ID, {
             handle,
-            name: "ImgBed Sanyue",
+            name: "Sanyue CloudFlare ImgBed",
             config: config,
         });
     };
     const handle = async function(ctx) {
-        let userConfig = ctx.getConfig("picBed.uploader-sanyue-imgbed");
+        let userConfig = ctx.getConfig(`picBed.${UPLOADER_ID}`);
         if (!userConfig) {
             throw new Error("Can't find uploader config");
         }
@@ -164,7 +166,7 @@ module.exports = (ctx) => {
     };
 
     const config = (ctx) => {
-        let userConfig = ctx.getConfig("picBed.uploader-sanyue-imgbed");
+        let userConfig = ctx.getConfig(`picBed.${UPLOADER_ID}`);
         if (!userConfig) {
             userConfig = {};
         }
@@ -218,7 +220,7 @@ module.exports = (ctx) => {
         ];
     };
     return {
-        uploader: "uploader-sanyue-imgbed",
+        uploader: UPLOADER_ID,
         register,
     };
 };

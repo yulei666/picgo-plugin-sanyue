@@ -1,30 +1,45 @@
 {
-    "name": "picgo-plugin-uploader-sanyue-imgbed",
-    "version": "1.1.9",
-    "description": "uploader-sanyue-imgbed",
+    "name": "picgo-plugin-sanyue-cloudflare-imgbed",
+    "version": "1.0.0",
+    "description": "PicGo / PicList uploader for Sanyue CloudFlare ImgBed, with upload folder placeholders. Based on gunanbei/picgo-plugin-sanyue (picgo-plugin-uploader-sanyue-imgbed).",
     "main": "src/index.js",
+    "files": [
+        "src",
+        "README.md",
+        "License"
+    ],
     "publishConfig": {
         "access": "public"
     },
-    "homepage": "https://github.com/gunanbei/picgo-plugin-sanyue.git",
+    "homepage": "https://github.com/yulei666/picgo-plugin-sanyue#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yulei666/picgo-plugin-sanyue.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yulei666/picgo-plugin-sanyue/issues"
+    },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "patch": "npm version patch && git push origin master && git push origin --tags",
-        "minor": "npm version minor && git push origin master && git push origin --tags",
-        "major": "npm version major && git push origin master && git push origin --tags"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
         "picgo",
         "picgo-gui-plugin",
         "picgo-plugin",
+        "piclist",
         "sanyue",
+        "cloudflare",
         "imgbed",
+        "cloudflare-imgbed",
         "uploader",
         "image-hosting",
-        "image-upload",
-        "sanyue-imgbed"
+        "image-upload"
     ],
-    "author": "huajianling",
+    "author": "Yu Lei",
+    "contributors": [
+        "huajianling",
+        "顾南北"
+    ],
     "license": "MIT",
     "devDependencies": {
         "@varnxy/logger": "^1.1.2",
