@@ -86,6 +86,14 @@ module.exports = (ctx) => {
             });
             throw new Error("上传目标文件夹配置错误：" + folderError);
         }
+        // 命名策略和服务端压缩只在与服务端默认值不同时才传，未配置时保持服务端默认行为
+        const uploadNameType = userConfig.upload_name_type;
+        if (uploadNameType && uploadNameType !== "default") {
+            url = url + "&uploadNameType=" + encodeURIComponent(uploadNameType);
+        }
+        if (userConfig.server_compress === "false") {
+            url = url + "&serverCompress=false";
+        }
         const uploadFolder = resolveFolder(folderTemplate, new Date());
         if (uploadFolder) {
             url = url + "&uploadFolder=" + encodeURIComponent(uploadFolder);
@@ -216,6 +224,48 @@ module.exports = (ctx) => {
                 // 不能使用 validate 等函数字段：GUI 通过 IPC 传递配置项，函数无法序列化会导致设置页加载失败，
                 // 合法性校验在上传前进行
                 tips: FOLDER_TIPS,
+            },
+            {
+                name: "upload_name_type",
+                type: "list",
+                default: userConfig.upload_name_type || "default",
+                required: false,
+                alias: "命名策略",
+                tips: "服务端保存文件时的命名方式。同名文件已存在时，服务端会自动追加 (1)、(2) 等编号",
+                choices: [{
+                        name: "默认（前缀_原名）",
+                        value: "default",
+                    },
+                    {
+                        name: "仅前缀",
+                        value: "index",
+                    },
+                    {
+                        name: "仅原名",
+                        value: "origin",
+                    },
+                    {
+                        name: "短链接",
+                        value: "short",
+                    },
+                ],
+            },
+            {
+                name: "server_compress",
+                type: "list",
+                default: userConfig.server_compress || "true",
+                required: false,
+                alias: "服务端压缩",
+                tips: "仅对 Telegram 渠道的图片生效。关闭后图片以文件形式发送到 Telegram，保留原图画质",
+                choices: [{
+                        name: "开启",
+                        value: "true",
+                    },
+                    {
+                        name: "关闭",
+                        value: "false",
+                    },
+                ],
             },
         ];
     };

@@ -11,6 +11,8 @@
 - 🚀 支持多种上传渠道（Telegram、CF-R2、S3）
 - 🔐 基于 Token 的身份验证
 - 📁 支持自定义上传文件夹，支持 `{Y}/{m}/{d}` 等时间占位符
+- 🏷️ 支持选择服务端文件命名策略
+- 🗜️ 支持开关服务端压缩（Telegram 渠道）
 - 📱 简单易用的配置界面
 - 🎯 自动处理图片上传和URL生成
 - 🔄 支持完整URL返回格式
@@ -76,6 +78,8 @@ npm install picgo-plugin-sanyue-cloudflare-imgbed --save
 |--------|------|--------|------|
 | **上传渠道** | 选择图片存储的渠道 | `telegram` | TG、CF-R2、S3 |
 | **上传目标文件夹** | 指定图片上传到的文件夹路径 | 空字符串（根目录） | 任意文件夹路径 |
+| **命名策略** | 服务端保存文件时的命名方式 | 默认（前缀_原名） | 默认、仅前缀、仅原名、短链接 |
+| **服务端压缩** | 是否由服务端压缩图片，仅对 Telegram 渠道生效 | 开启 | 开启、关闭 |
 
 ### 3. 上传渠道说明
 
@@ -122,6 +126,26 @@ npm install picgo-plugin-sanyue-cloudflare-imgbed --save
 | `{timestamp}` | 秒级时间戳 | `1793073533` |
 
 花括号必须成对出现，且只能包含上表中的占位符。花括号不匹配（如 `blog/{Y`）或使用了不支持的占位符（如 `{YY}`）时，上传会直接报错并给出提示，不会上传到错误的目录。
+
+### 5. 命名策略
+
+| 选项 | 说明 | 示例 |
+|------|------|------|
+| 默认（前缀_原名） | 时间戳前缀 + 原文件名 | `1793281376123_photo.png` |
+| 仅前缀 | 只用时间戳前缀 | `1793281376123.png` |
+| 仅原名 | 保留原文件名 | `photo.png` |
+| 短链接 | 8 位随机字符 | `aB3dE9xQ.png` |
+
+同名文件已存在时，服务端会自动在文件名后追加 `(1)`、`(2)` 等编号。
+
+### 6. 服务端压缩
+
+仅对 Telegram 渠道的图片生效：
+
+- **开启**（默认）：图片以照片形式发送到 Telegram，会被压缩
+- **关闭**：图片以文件形式发送到 Telegram，保留原图画质
+
+其他渠道不受此选项影响。
 
 ## 使用说明
 
@@ -210,13 +234,17 @@ blog/images
 
 - **包名**: `picgo-plugin-sanyue-cloudflare-imgbed`
 - **图床 ID**: `sanyue-cloudflare-imgbed`
-- **版本**: 1.0.1
+- **版本**: 1.1.0
 - **许可证**: MIT
 - **GitHub**: [https://github.com/yulei666/picgo-plugin-sanyue](https://github.com/yulei666/picgo-plugin-sanyue)
 - **NPM**: [https://www.npmjs.com/package/picgo-plugin-sanyue-cloudflare-imgbed](https://www.npmjs.com/package/picgo-plugin-sanyue-cloudflare-imgbed)
 - **原项目**: [gunanbei/picgo-plugin-sanyue](https://github.com/gunanbei/picgo-plugin-sanyue)
 
 ## 更新日志
+
+### picgo-plugin-sanyue-cloudflare-imgbed v1.1.0
+- ✨ 新增「命名策略」选项，可选默认、仅前缀、仅原名、短链接
+- ✨ 新增「服务端压缩」选项，可关闭 Telegram 渠道的图片压缩
 
 ### picgo-plugin-sanyue-cloudflare-imgbed v1.0.1
 - 🐛 修复 PicList / PicGo 图床设置页提示"加载配置失败"的问题

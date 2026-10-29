@@ -1,6 +1,6 @@
 {
     "name": "picgo-plugin-sanyue-cloudflare-imgbed",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "PicGo / PicList uploader for Sanyue CloudFlare ImgBed, with upload folder placeholders. Based on gunanbei/picgo-plugin-sanyue (picgo-plugin-uploader-sanyue-imgbed).",
     "main": "src/index.js",
     "files": [
