@@ -234,7 +234,7 @@ blog/images
 
 - **包名**: `picgo-plugin-sanyue-cloudflare-imgbed`
 - **图床 ID**: `sanyue-cloudflare-imgbed`
-- **版本**: 1.1.0
+- **版本**: 1.0.2
 - **许可证**: MIT
 - **GitHub**: [https://github.com/yulei666/picgo-plugin-sanyue](https://github.com/yulei666/picgo-plugin-sanyue)
 - **NPM**: [https://www.npmjs.com/package/picgo-plugin-sanyue-cloudflare-imgbed](https://www.npmjs.com/package/picgo-plugin-sanyue-cloudflare-imgbed)
@@ -242,7 +242,7 @@ blog/images
 
 ## 更新日志
 
-### picgo-plugin-sanyue-cloudflare-imgbed v1.1.0
+### picgo-plugin-sanyue-cloudflare-imgbed v1.0.2
 - ✨ 新增「命名策略」选项，可选默认、仅前缀、仅原名、短链接
 - ✨ 新增「服务端压缩」选项，可关闭 Telegram 渠道的图片压缩
 
