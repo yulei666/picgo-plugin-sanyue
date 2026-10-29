@@ -210,13 +210,16 @@ blog/images
 
 - **包名**: `picgo-plugin-sanyue-cloudflare-imgbed`
 - **图床 ID**: `sanyue-cloudflare-imgbed`
-- **版本**: 1.0.0
+- **版本**: 1.0.1
 - **许可证**: MIT
 - **GitHub**: [https://github.com/yulei666/picgo-plugin-sanyue](https://github.com/yulei666/picgo-plugin-sanyue)
 - **NPM**: [https://www.npmjs.com/package/picgo-plugin-sanyue-cloudflare-imgbed](https://www.npmjs.com/package/picgo-plugin-sanyue-cloudflare-imgbed)
 - **原项目**: [gunanbei/picgo-plugin-sanyue](https://github.com/gunanbei/picgo-plugin-sanyue)
 
 ## 更新日志
+
+### picgo-plugin-sanyue-cloudflare-imgbed v1.0.1
+- 🐛 修复 PicList / PicGo 图床设置页提示"加载配置失败"的问题
 
 ### picgo-plugin-sanyue-cloudflare-imgbed v1.0.0
 - 🎉 以新包名 `picgo-plugin-sanyue-cloudflare-imgbed` 独立发布，图床 ID 改为 `sanyue-cloudflare-imgbed`
