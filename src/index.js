@@ -213,9 +213,9 @@ module.exports = (ctx) => {
                 required: false,
                 message: "留空为根目录，支持占位符，如 blog/{Y}/{m}",
                 alias: "上传目标文件夹",
+                // 不能使用 validate 等函数字段：GUI 通过 IPC 传递配置项，函数无法序列化会导致设置页加载失败，
+                // 合法性校验在上传前进行
                 tips: FOLDER_TIPS,
-                // 仅命令行 picgo set 时生效，GUI 不会调用，GUI 下由上传时校验兜底
-                validate: (value) => validateFolder((value || "").trim()) || true,
             },
         ];
     };
